@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="database.cpp" />
     <ClCompile Include="Player Database.cpp" />
     <ClCompile Include="player.cpp" />
   </ItemGroup>

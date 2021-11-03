@@ -11,7 +11,7 @@ public:
 	std::string get_name() { return name; }
 	int get_id_number() { return id_no; }
 	double get_stipend() { return stipend; }
-	int get_years_worked() { return age; }
+	int get_age() { return age; }
 
 	void output(std::ostream& outs);
 	void input(std::istream& ins);
