@@ -25,8 +25,8 @@ private:
 };
 
 //overload
-std::ostream& operator << (std::ostream, Player& temp);
-std::istream& operator >> (std::istream, Player& temp);
+std::ostream& operator << (std::ostream&, Player& temp);
+std::istream& operator >> (std::istream&, Player& temp);
 
 
 #endif // !PLAYER_H

@@ -71,7 +71,7 @@ ostream& operator << (ostream& outs, Player& tmp)
 	return outs;
 }
 
-istream& operator << (istream& ins, Player& tmp)
+istream& operator >> (istream& ins, Player& tmp)
 {
 	tmp.input(ins);
 	return ins;
