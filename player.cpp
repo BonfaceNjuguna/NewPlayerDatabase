@@ -46,13 +46,13 @@ void Player::input(istream& ins)
 	if (ins.fail() == cin.fail())
 	{
 		if (ins.peek() == '\n') ins.ignore();
-		cout << "Name: ";
+		//cout << "Name: ";
 		getline(ins, name);
-		cout << "Enter Id Number: ";
+		//cout << "Enter Id Number: ";
 		ins >> id_no;
-		cout << "Enter Stipend: ";
+		//cout << "Enter Stipend: ";
 		ins >> stipend;
-		cout << "Enter the age of player: ";
+		//cout << "Enter the age of player: ";
 		ins >> age;
 	}
 	else

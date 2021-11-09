@@ -1,0 +1,8 @@
+Name: bonny
+ID Number: 12
+Stipend: 1200
+Age: 12
+Name: tabby
+ID Number: 13
+Stipend: 13000
+Age: 14
