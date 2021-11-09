@@ -134,7 +134,7 @@ int main()
 int menu() 
 {
     int choice;
-    cout << "1. Add new player." << endl;
+    cout << " \n1. Add new player." << endl;
     cout << "2. Search for player by name." << endl;
     cout << "3. Search for player by ID number." << endl;
     cout << "4. Display all current players." << endl;
