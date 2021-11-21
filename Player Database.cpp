@@ -10,17 +10,17 @@ int main()
 {
     Database database;
     Player plr;
-    string filename;
+    std::fstream filename;
+    filename.open("Players.dat", std::ios::in, std::ios::binary);
     cout << "Enter the name of the file: ";
-    getline(cin, filename);
-    filename + ".txt";
-    ifstream fin(filename.c_str());
+    ifstream fin("student.dat", ios::out | ios::binary);
+
     if (!fin.fail())
     {
         database.load(fin);
         fin.close();
         int choice = 0;
-        while (choice!=8)
+        while (choice!=9)
         {
             choice = menu();
             switch (choice)
@@ -35,10 +35,10 @@ int main()
             case 2:
             {
                 system("cls");
-                string name;
+                char name;
                 cout << "Enter the Player's name: ";
                 if (cin.peek() == '\n')cin.ignore();
-                getline(cin, name);
+                cin >> name;
                 database.search(name);
                 break;
             }
@@ -64,10 +64,10 @@ int main()
             case 5:
             {
                 system("cls");
-                string name;
+                char name;
                 cout << "Enter the name of Player to be removed: ";
                 if (cin.peek() == '\n')cin.ignore();
-                getline(cin, name);
+                cin >> name;
                 database.remove(name);
                 break;
             }
@@ -101,6 +101,8 @@ int main()
 
             case 9:
             {
+                database.save(cout);
+                exit(1);
                 break;
             }
             default:
@@ -109,10 +111,10 @@ int main()
                 break;
             }
         }
-        ofstream fout(filename.c_str());
+        ifstream fout("student.dat", ios::out | ios::binary);
         if (!fout.fail())
         {
-            database.save(fout);
+            database.save(cout);
         }
         else
         {
@@ -124,7 +126,7 @@ int main()
     else
     {
         cout << "File does not exist, creating New File!" << endl;
-        ofstream new_file(filename.c_str());
+        ifstream new_file("student.dat", ios::out | ios::binary);
         new_file.close();
         main();
     }

@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <fstream>
 #include <string>
+#include<stdlib.h>
+#include<cstdlib>
 #include "database.h"
 using namespace std;
 
@@ -51,7 +53,7 @@ void Database::make_bigger()
 	capacity += 5;
 }
 
-void Database::search(string name)
+void Database::search(char name)
 {
 	int num_found = 0;
 	for (int i = 0; i < used; i++)
@@ -65,7 +67,7 @@ void Database::search(string name)
 	}
 	if (num_found == 0)
 	{
-		cout << "No employee by that name!" << endl;
+		cout << "No Player by that name!" << endl;
 	}
 }
 
@@ -85,6 +87,34 @@ void Database::search_id(int id)
 	{
 		cout << "No player by that name!" << endl;
 	}
+
+	/*if (root == NULL)
+	{
+		cout << "Tree is empty\n";
+		return;
+	}
+
+	queue<Node*> q;
+	q.push(root);
+
+	while (!q.empty())
+	{
+		Node* temp = q.front();
+		q.pop();
+
+		if (temp->id == id)
+		{
+			cout << "Node found\n";
+			return;
+		}
+
+		if (temp->left != NULL)
+			q.push(temp->left);
+		if (temp->right != NULL)
+			q.push(temp->right);
+	}
+
+	cout << "Node not found\n";*/
 }
 
 void Database::add(const Player& plr)
@@ -106,7 +136,7 @@ void Database::display_all()
 	}
 }
 
-void Database::remove(string name)
+void Database::remove(char name)
 {
 	for (int i = 0; i < used; i++)
 	{
@@ -123,14 +153,14 @@ void Database::save(ostream& outs)
 	sort_name();
 	for (int i = 0; i < used; i++)
 	{
-		outs << data[i];
+		outs.write((const char*)&data[i], sizeof(Player));
 	}
 }
 
 void Database::load(istream& ins)
 {
 	Player tmp;
-	while (ins >> tmp)
+	while (ins.read((char*)&tmp, sizeof(Player)))
 	{
 		if (used >= capacity)
 		{

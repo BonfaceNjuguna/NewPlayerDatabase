@@ -12,13 +12,14 @@ Player::Player()
 }
 
 //copy constructor
-Player::Player(std::string new_name, int new_id, double new_stipend, int new_age)
+Player::Player(char new_name[256], int new_id, double new_stipend, int new_age)
 {
-	name = new_name;
+	name = new_name[256];
 	id_no = new_id;
 	stipend = new_stipend;
 	age = new_age;
 }
+
 
 //output
 void Player::output(ostream& outs)
@@ -46,19 +47,19 @@ void Player::input(istream& ins)
 	if (ins.fail() == cin.fail())
 	{
 		if (ins.peek() == '\n') ins.ignore();
-		//cout << "Name: ";
-		getline(ins, name);
-		//cout << "Enter Id Number: ";
+		cout << "Name: ";
+		ins >> name;
+		cout << "Enter Id Number: ";
 		ins >> id_no;
-		//cout << "Enter Stipend: ";
+		cout << "Enter Stipend: ";
 		ins >> stipend;
-		//cout << "Enter the age of player: ";
+		cout << "Enter the age of player: ";
 		ins >> age;
 	}
 	else
 	{
 		if (ins.peek() == '\n') ins.ignore();
-		getline(ins, name);
+		ins >> name;;
 		ins >> id_no;
 		ins >> stipend;
 		ins >> age;
