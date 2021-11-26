@@ -1,2 +1,6 @@
-﻿  Player Database.cpp
+﻿  database.cpp
+  Player Database.cpp
+  player.cpp
+  Generating Code...
+  LINK : D:\AIE\c++ projects\playerDBnew\NewPlayerDatabase\x64\Debug\Player Database.exe not found or not built by the last incremental link; performing full link
   Player Database.vcxproj -> D:\AIE\c++ projects\playerDBnew\NewPlayerDatabase\x64\Debug\Player Database.exe
