@@ -19,7 +19,7 @@ Database::Database(const Database& other)
 	used = other.used;
 	capacity = other.capacity;
 	data = new Player[capacity];
-	copy(other.data, other.data+used, data);//copy from the begining to the end to the new
+	copy(other.data, other.data + used, data);//copy from the begining to the end to the new
 }
 
 Database::~Database()
@@ -53,12 +53,12 @@ void Database::make_bigger()
 	capacity += 5;
 }
 
-void Database::search(char name)
+void Database::search(char* name)
 {
 	int num_found = 0;
 	for (int i = 0; i < used; i++)
 	{
-		if (data[i].get_name() == name)
+		if (strcmp(data[i].get_name(), name) == 0)
 		{
 			cout << "Player found!" << endl;
 			data[i].output(cout);
@@ -125,7 +125,7 @@ void Database::add(const Player& plr)
 		make_bigger();
 	}
 	data[used] = plr;
-	used++; 
+	used++;
 }
 
 void Database::display_all()
@@ -136,7 +136,7 @@ void Database::display_all()
 	}
 }
 
-void Database::remove(char name)
+void Database::remove(char* name)
 {
 	for (int i = 0; i < used; i++)
 	{
@@ -180,9 +180,9 @@ void Database::sort_name()
 	while (!done)
 	{
 		done = true;
-		for (int i = 0; i < used-1; i++)
+		for (int i = 0; i < used - 1; i++)
 		{
-			if (data[i].get_name() > data[i+1].get_name())
+			if (strcmp(data[i].get_name(), data[i + 1].get_name()) > 0)
 			{
 				done = false;
 				tmp = data[i];
@@ -194,7 +194,7 @@ void Database::sort_name()
 }
 
 //sort by stipend
-void Database::sort_stipend() 
+void Database::sort_stipend()
 {
 	bool done = false;
 	Player tmp;

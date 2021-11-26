@@ -14,7 +14,7 @@ Player::Player()
 //copy constructor
 Player::Player(char new_name[256], int new_id, double new_stipend, int new_age)
 {
-	name = new_name[256];
+	strcpy_s(new_name, 256, name);
 	id_no = new_id;
 	stipend = new_stipend;
 	age = new_age;

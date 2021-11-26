@@ -12,7 +12,10 @@ int main()
     Player plr;
     std::fstream filename;
     filename.open("Players.dat", std::ios::in, std::ios::binary);
+<<<<<<< Updated upstream
     cout << "Enter the name of the file: ";
+=======
+>>>>>>> Stashed changes
     ifstream fin("student.dat", ios::out | ios::binary);
 
     if (!fin.fail())
@@ -20,12 +23,12 @@ int main()
         database.load(fin);
         fin.close();
         int choice = 0;
-        while (choice!=9)
+        while (choice != 9)
         {
             choice = menu();
             switch (choice)
             {
-            case 1: 
+            case 1:
             {
                 cin >> plr;
                 database.add(plr);
@@ -35,7 +38,7 @@ int main()
             case 2:
             {
                 system("cls");
-                char name;
+                char name[256];
                 cout << "Enter the Player's name: ";
                 if (cin.peek() == '\n')cin.ignore();
                 cin >> name;
@@ -64,7 +67,7 @@ int main()
             case 5:
             {
                 system("cls");
-                char name;
+                char name[256];
                 cout << "Enter the name of Player to be removed: ";
                 if (cin.peek() == '\n')cin.ignore();
                 cin >> name;
@@ -125,7 +128,10 @@ int main()
     }
     else
     {
+<<<<<<< Updated upstream
         cout << "File does not exist, creating New File!" << endl;
+=======
+>>>>>>> Stashed changes
         ifstream new_file("student.dat", ios::out | ios::binary);
         new_file.close();
         main();
@@ -133,7 +139,7 @@ int main()
     return 0;
 }
 
-int menu() 
+int menu()
 {
     int choice;
     cout << " \n1. Add new player." << endl;
@@ -146,6 +152,14 @@ int menu()
     cout << "8. Sort Player by Age" << endl;
     cout << "9. Quit." << endl;
 
-    cin >> choice;
+    //cin.clear();
+    while (true) {
+        cin >> choice;
+        if (cin.bad()) {
+            cin.ignore(cin.rdbuf()->in_avail());
+            cout << "Bad input" << endl;
+        }
+        else break;
+    }
     return choice;
 }

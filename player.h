@@ -8,7 +8,11 @@ public:
 	Player();
 
 	Player(char new_name[256], int new_id, double new_stipend, int new_age);
+<<<<<<< Updated upstream
 	char get_name() { return name; }
+=======
+	char* get_name() { return name; }
+>>>>>>> Stashed changes
 	int get_id_number() { return id_no; }
 	double get_stipend() { return stipend; }
 	int get_age() { return age; }
@@ -17,7 +21,7 @@ public:
 	void input(std::istream& ins);
 
 private:
-	char name;
+	char name[256];
 	int id_no;
 	double stipend;
 	int age;
