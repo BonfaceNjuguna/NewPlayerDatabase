@@ -13,7 +13,10 @@ int main()
     std::fstream filename;
     filename.open("Players.dat", std::ios::in, std::ios::binary);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     cout << "Enter the name of the file: ";
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     ifstream fin("student.dat", ios::out | ios::binary);
@@ -129,7 +132,10 @@ int main()
     else
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         cout << "File does not exist, creating New File!" << endl;
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         ifstream new_file("student.dat", ios::out | ios::binary);

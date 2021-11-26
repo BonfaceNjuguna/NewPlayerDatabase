@@ -9,7 +9,11 @@ public:
 
 	Player(char new_name[256], int new_id, double new_stipend, int new_age);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	char get_name() { return name; }
+=======
+	char* get_name() { return name; }
+>>>>>>> Stashed changes
 =======
 	char* get_name() { return name; }
 >>>>>>> Stashed changes
