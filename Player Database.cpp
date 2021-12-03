@@ -74,6 +74,7 @@ int main()
 			if (std::cin.peek() == '\n')std::cin.ignore();
 			std::cin >> name;
 			database.remove(name);
+			std::cout << "Player removed! \n";
 			break;
 		}
 
