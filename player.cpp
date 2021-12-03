@@ -1,6 +1,12 @@
-#include <iostream>
-#include <string> 
 #include "player.h"
+
+#include <iostream>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include<stdlib.h>
+#include<cstdlib>
+
 using namespace std;
 
 //default constuctor

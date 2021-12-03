@@ -1,10 +1,12 @@
+#include "database.h"
+
 #include <iostream>
 #include <algorithm>
 #include <fstream>
 #include <string>
 #include<stdlib.h>
 #include<cstdlib>
-#include "database.h"
+
 using namespace std;
 
 Database::Database()

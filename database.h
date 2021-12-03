@@ -3,6 +3,8 @@
 #define DATABASE_H
 #include "player.h"
 
+using namespace std;
+
 class Database
 {
 public:
