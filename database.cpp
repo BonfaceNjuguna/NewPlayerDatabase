@@ -77,21 +77,28 @@ void Database::search(char* name)
 void Database::search_id(int id)
 {
 	//binary search algo
-	int num_found[] = {1,2};
+	int binarysearch(int* array, int begin, int end, int value);
+	//m=(begin+end)/2;
+	/*if ()
+	{
+		
+	}
+	else 
+	{
+		
+	}*/
+
+	/*int num_found[] = { 1,2 };
 	std::vector<int> v(num_found, num_found + 2);
-	
 	std::sort(v.begin(), v.end());
 
-	for (auto num : num_found) {
-		std::cout << "Searching for " << num_found << '\n';
-		if (std::binary_search(v.begin(), v.end(), num_found)) {
-			std::cout << "Player Found! " << num_found << '\n';
-		}
-		else {
-			std::cout << "No player by that name!\n";
-		}
+	std::cout << "Searching for " << num_found << '\n';
+	if (std::binary_search(v.begin(), v.end(), num_found)) {
+		std::cout << "Player Found! " << num_found << '\n';
 	}
-
+	else {
+		std::cout << "No player by that name!\n";
+	}*/
 	//end of binary search
 
 	/*int num_found = 0;
