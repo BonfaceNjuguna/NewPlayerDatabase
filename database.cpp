@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <vector>
 #include <fstream>
 #include <string>
 #include<stdlib.h>
@@ -75,7 +76,25 @@ void Database::search(char* name)
 
 void Database::search_id(int id)
 {
-	int num_found = 0;
+	//binary search algo
+	int num_found[] = {1,2};
+	std::vector<int> v(num_found, num_found + 2);
+	
+	std::sort(v.begin(), v.end());
+
+	for (auto num : num_found) {
+		std::cout << "Searching for " << num_found << '\n';
+		if (std::binary_search(v.begin(), v.end(), num_found)) {
+			std::cout << "Player Found! " << num_found << '\n';
+		}
+		else {
+			std::cout << "No player by that name!\n";
+		}
+	}
+
+	//end of binary search
+
+	/*int num_found = 0;
 	for (int i = 0; i < used; i++)
 	{
 		if (data[i].get_id_number() == id)
@@ -88,35 +107,7 @@ void Database::search_id(int id)
 	if (num_found == 0)
 	{
 		cout << "No player by that name!" << endl;
-	}
-
-	/*if (root == NULL)
-	{
-		cout << "Tree is empty\n";
-		return;
-	}
-
-	queue<Node*> q;
-	q.push(root);
-
-	while (!q.empty())
-	{
-		Node* temp = q.front();
-		q.pop();
-
-		if (temp->id == id)
-		{
-			cout << "Node found\n";
-			return;
-		}
-
-		if (temp->left != NULL)
-			q.push(temp->left);
-		if (temp->right != NULL)
-			q.push(temp->right);
-	}
-
-	cout << "Node not found\n";*/
+	}*/
 }
 
 void Database::add(const Player& plr)
@@ -142,7 +133,7 @@ void Database::remove(char* name)
 {
 	for (int i = 0; i < used; i++)
 	{
-		if (data[i].get_name() == name)
+		if (strcmp(data[i].get_name(), name) == 0)
 		{
 			data[i] = data[used - 1];
 			used--;
