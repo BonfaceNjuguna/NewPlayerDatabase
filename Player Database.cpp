@@ -51,7 +51,7 @@ int main()
 		case 3:
 		{
 			system("cls");
-			int id;
+			int id[] = {};
 			std::cout << "Enter ID number: ";
 			std::cin >> id;
 			database.search_id(id);

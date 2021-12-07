@@ -74,48 +74,29 @@ void Database::search(char* name)
 	}
 }
 
-void Database::search_id(int id)
+
+int Database::search_id(int* items, int startindex, int length, int searchitem)
 {
-	//binary search algo
-	int binarysearch(int* array, int begin, int end, int value);
-	//m=(begin+end)/2;
-	/*if ()
-	{
-		
-	}
-	else 
-	{
-		
-	}*/
+	int midpoint(length / 2);
 
-	/*int num_found[] = { 1,2 };
-	std::vector<int> v(num_found, num_found + 2);
-	std::sort(v.begin(), v.end());
+	if (items[startindex + midpoint] == searchitem) 
+		return startindex + midpoint;
 
-	std::cout << "Searching for " << num_found << '\n';
-	if (std::binary_search(v.begin(), v.end(), num_found)) {
-		std::cout << "Player Found! " << num_found << '\n';
-	}
-	else {
-		std::cout << "No player by that name!\n";
-	}*/
-	//end of binary search
+	if (length == 1) 
+		return -1;
 
-	/*int num_found = 0;
-	for (int i = 0; i < used; i++)
-	{
-		if (data[i].get_id_number() == id)
-		{
-			cout << "Player found!" << endl;
-			data[i].output(cout);
-			num_found++;
-		}
+	int answer = search_id(items, startindex, length - midpoint, searchitem);
+
+	if (answer != -1) {
+		cout << "Player found!" << endl;
+		return answer;
 	}
-	if (num_found == 0)
-	{
-		cout << "No player by that name!" << endl;
-	}*/
+	else
+		cout << "Player not found!" << endl;
+
+	return search_id(items, startindex + midpoint + 1, length - midpoint, searchitem);
 }
+
 
 void Database::add(const Player& plr)
 {

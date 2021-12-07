@@ -13,7 +13,7 @@ public:
 	Database(const Database& other);
 	void operator = (const Database& other);
 	void search(char* name);
-	void search_id(int id);
+	int search_id(int* items, int startindex, int length, int searchitem);
 	void add(const Player& plr);
 	void display_all();
 	void remove(char* name);
