@@ -12,8 +12,8 @@ public:
 	~Database();
 	Database(const Database& other);
 	void operator = (const Database& other);
-	void search(char* name);
-	int search_id(int* items, int startindex, int length, int searchitem);
+	//void search(char* name);
+	int search(int start, int length, string searchname);
 	void add(const Player& plr);
 	void display_all();
 	void remove(char* name);

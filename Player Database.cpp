@@ -25,7 +25,7 @@ int main()
 		new_file.close();
 	}
 
-	for (auto choice(menu()); choice != 9; choice = menu())
+	for (auto choice(menu()); choice != 8; choice = menu())
 	{
 		switch (choice)
 		{
@@ -40,25 +40,15 @@ int main()
 		case 2:
 		{
 			system("cls");
-			char name[256];
+			string searchName;
 			std::cout << "Enter the Player's name: ";
 			if (std::cin.peek() == '\n')std::cin.ignore();
-			std::cin >> name;
-			database.search(name);
+			std::cin >> searchName;
+			database.search(searchName);
 			break;
 		}
 
 		case 3:
-		{
-			system("cls");
-			int id[] = {};
-			std::cout << "Enter ID number: ";
-			std::cin >> id;
-			database.search_id(id);
-			break;
-		}
-
-		case 4:
 		{
 			system("cls");
 			std::cout << "All the Players in the database!" << std::endl;
@@ -66,7 +56,7 @@ int main()
 			break;
 		}
 
-		case 5:
+		case 4:
 		{
 			system("cls");
 			char name[256];
@@ -78,7 +68,7 @@ int main()
 			break;
 		}
 
-		case 6:
+		case 5:
 		{
 			system("cls");
 			database.sort_stipend();
@@ -87,7 +77,7 @@ int main()
 			break;
 		}
 
-		case 7:
+		case 6:
 		{
 			system("cls");
 			database.sort_name();
@@ -96,7 +86,7 @@ int main()
 			break;
 		}
 
-		case 8:
+		case 7:
 		{
 			system("cls");
 			database.sort_age();
@@ -128,13 +118,12 @@ int menu()
 {
 	std::cout << " \n1. Add new player." << std::endl;
 	std::cout << "2. Search for player by name." << std::endl;
-	std::cout << "3. Search for player by ID number." << std::endl;
-	std::cout << "4. Display all current players." << std::endl;
-	std::cout << "5. Remove player form database" << std::endl;
-	std::cout << "6. Sort Players by highest Stipend." << std::endl;
-	std::cout << "7. Sort Player by First Name" << std::endl;
-	std::cout << "8. Sort Player by Age" << std::endl;
-	std::cout << "9. Quit." << std::endl;
+	std::cout << "3. Display all current players." << std::endl;
+	std::cout << "4. Remove player form database" << std::endl;
+	std::cout << "5. Sort Players by highest Stipend." << std::endl;
+	std::cout << "6. Sort Player by First Name" << std::endl;
+	std::cout << "7. Sort Player by Age" << std::endl;
+	std::cout << "8. Quit." << std::endl;
 
 
 	int choice;

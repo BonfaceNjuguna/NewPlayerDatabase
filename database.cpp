@@ -5,8 +5,9 @@
 #include <vector>
 #include <fstream>
 #include <string>
-#include<stdlib.h>
-#include<cstdlib>
+#include <stdlib.h>
+#include <cstdlib>
+#include <Bits.h>
 
 using namespace std;
 
@@ -56,12 +57,26 @@ void Database::make_bigger()
 	capacity += 5;
 }
 
-void Database::search(char* name)
+int Database::search(int start, int length, string searchname)
 {
-	int num_found = 0;
+
+	sort_name();
+	int midpoint(length / 2);
+
+
+	/*
+	Guidance
+	int search_id(int start, int length, string searchname)
+	rewrite the search_id() code to use get_name() to check the name of each element against the search name.
+	check if the name comes before or after the data[midpoint] though (you can just use searchname < get_name() and searchname > get_name() ) and adjust the startindex and length accordingly.
+	If the searchname < midpoint name then we need to check the lower half of the array, length = midpoint -1
+	If the searchname > midpoint name then we need to check the upper half of the array, length = length - midpoint +1 AND startindex = midpoint+1
+	*/
+
+	/*int num_found = 0;
 	for (int i = 0; i < used; i++)
 	{
-		if (strcmp(data[i].get_name(), name) == 0)
+		if (strcmp(data[i].get_name(), searchname) == 0)
 		{
 			cout << "Player found!" << endl;
 			data[i].output(cout);
@@ -71,30 +86,7 @@ void Database::search(char* name)
 	if (num_found == 0)
 	{
 		cout << "No Player by that name!" << endl;
-	}
-}
-
-
-int Database::search_id(int* items, int startindex, int length, int searchitem)
-{
-	int midpoint(length / 2);
-
-	if (items[startindex + midpoint] == searchitem) 
-		return startindex + midpoint;
-
-	if (length == 1) 
-		return -1;
-
-	int answer = search_id(items, startindex, length - midpoint, searchitem);
-
-	if (answer != -1) {
-		cout << "Player found!" << endl;
-		return answer;
-	}
-	else
-		cout << "Player not found!" << endl;
-
-	return search_id(items, startindex + midpoint + 1, length - midpoint, searchitem);
+	}*/
 }
 
 
