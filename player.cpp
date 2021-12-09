@@ -7,8 +7,6 @@
 #include<stdlib.h>
 #include<cstdlib>
 
-using namespace std;
-
 //default constuctor
 Player::Player()
 {
@@ -28,38 +26,38 @@ Player::Player(char new_name[256], int new_id, double new_stipend, int new_age)
 
 
 //output
-void Player::output(ostream& outs)
+void Player::output(std::ostream& outs)
 {
-	if (outs.fail() == cout.fail())
+	if (outs.fail() == std::cout.fail())
 	{
-		outs << "Name: " << name << endl;
-		outs << "ID Number: " << id_no << endl;
-		outs << "Stipend: " << stipend << endl;
-		outs << "Age: " << age << endl;
+		outs << "Name: " << name << std::endl;
+		outs << "ID Number: " << id_no << std::endl;
+		outs << "Stipend: " << stipend << std::endl;
+		outs << "Age: " << age << std::endl;
 	}
 	else
 	{
-		outs << name << endl;
-		outs << id_no << endl;
-		outs << stipend << endl;
-		outs << age << endl;
+		outs << name << std::endl;
+		outs << id_no << std::endl;
+		outs << stipend << std::endl;
+		outs << age << std::endl;
 	}
 }
 
 
 //input
-void Player::input(istream& ins)
+void Player::input(std::istream& ins)
 {
-	if (ins.fail() == cin.fail())
+	if (ins.fail() == std::cin.fail())
 	{
 		if (ins.peek() == '\n') ins.ignore();
-		cout << "Name: ";
+		std::cout << "Name: ";
 		ins >> name;
-		cout << "Enter Id Number: ";
+		std::cout << "Enter Id Number: ";
 		ins >> id_no;
-		cout << "Enter Stipend: ";
+		std::cout << "Enter Stipend: ";
 		ins >> stipend;
-		cout << "Enter the age of player: ";
+		std::cout << "Enter the age of player: ";
 		ins >> age;
 	}
 	else
@@ -72,13 +70,13 @@ void Player::input(istream& ins)
 	}
 }
 
-ostream& operator << (ostream& outs, Player& tmp)
+std::ostream& operator << (std::ostream& outs, Player& tmp)
 {
 	tmp.output(outs);
 	return outs;
 }
 
-istream& operator >> (istream& ins, Player& tmp)
+std::istream& operator >> (std::istream& ins, Player& tmp)
 {
 	tmp.input(ins);
 	return ins;

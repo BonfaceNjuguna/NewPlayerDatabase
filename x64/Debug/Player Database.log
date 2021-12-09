@@ -1,20 +1,2 @@
-﻿  Database.cpp
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\algorithm(6412,34): error C2672: 'operator __surrogate_func': no matching overloaded function found
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\algorithm(6418): message : see reference to function template instantiation 'bool std::binary_search<_FwdIt,int[2],std::less<void>>(_FwdIt,_FwdIt,const _Ty (&),_Pr)' being compiled
-          with
-          [
-              _FwdIt=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int>>>,
-              _Ty=int [2],
-              _Pr=std::less<void>
-          ]
-D:\AIE\c++ projects\playerDBnew\NewPlayerDatabase\Database.cpp(87): message : see reference to function template instantiation 'bool std::binary_search<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,int[2]>(_FwdIt,_FwdIt,const int (&)[2])' being compiled
-          with
-          [
-              _Ty=int,
-              _FwdIt=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int>>>
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\algorithm(6412,1): error C2893: Failed to specialize function template 'unknown-type std::less<void>::operator ()(_Ty1 &&,_Ty2 &&) noexcept(<expr>) const'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstddef(237): message : see declaration of 'std::less<void>::operator ()'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\algorithm(6412,1): message : With the following template arguments:
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\algorithm(6412,1): message : '_Ty1=const int (&)[2]'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\algorithm(6412,1): message : '_Ty2=int &'
+﻿  Player Database.cpp
+  Player Database.vcxproj -> D:\AIE\c++ projects\playerDBnew\NewPlayerDatabase\x64\Debug\Player Database.exe

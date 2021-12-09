@@ -9,7 +9,6 @@
 #include <cstdlib>
 #include <Bits.h>
 
-using namespace std;
 
 Database::Database()
 {
@@ -23,7 +22,7 @@ Database::Database(const Database& other)
 	used = other.used;
 	capacity = other.capacity;
 	data = new Player[capacity];
-	copy(other.data, other.data + used, data);//copy from the begining to the end to the new
+	std::copy(other.data, other.data + used, data);//copy from the begining to the end to the new
 }
 
 Database::~Database()
@@ -43,7 +42,7 @@ void Database::operator=(const Database& other)
 	capacity = other.capacity;
 	used = other.used;
 	data = new Player[capacity];
-	copy(other.data, other.data + used, data);
+	std::copy(other.data, other.data + used, data);
 }
 
 //make the array bigger when 5
@@ -51,42 +50,32 @@ void Database::make_bigger()
 {
 	Player* tmp;
 	tmp = new Player[capacity + 5];
-	copy(data, data + used, tmp);
+	std::copy(data, data + used, tmp);
 	delete[]data;
 	data = tmp;
 	capacity += 5;
 }
 
-int Database::search(int start, int length, string searchname)
+int Database::binarySearch(int startindex, int length, std::string searchitem)
+{
+	int midpoint(length / 2);
+	if (strcmp(data[startindex + midpoint].get_name(), searchitem.c_str()) == 0) return startindex + midpoint;
+	if (length == 1) return -1;
+
+	auto answer(binarySearch(startindex, length - midpoint, searchitem));
+	if (answer != -1) return answer;
+	return binarySearch(startindex + midpoint + 1, length - midpoint, searchitem);
+}
+
+Player Database::search(int start, std::string searchname)
 {
 
 	sort_name();
-	int midpoint(length / 2);
 
+	auto foundPosition(binarySearch(0, used, searchname));
 
-	/*
-	Guidance
-	int search_id(int start, int length, string searchname)
-	rewrite the search_id() code to use get_name() to check the name of each element against the search name.
-	check if the name comes before or after the data[midpoint] though (you can just use searchname < get_name() and searchname > get_name() ) and adjust the startindex and length accordingly.
-	If the searchname < midpoint name then we need to check the lower half of the array, length = midpoint -1
-	If the searchname > midpoint name then we need to check the upper half of the array, length = length - midpoint +1 AND startindex = midpoint+1
-	*/
+	if (foundPosition != -1) return data[foundPosition];
 
-	/*int num_found = 0;
-	for (int i = 0; i < used; i++)
-	{
-		if (strcmp(data[i].get_name(), searchname) == 0)
-		{
-			cout << "Player found!" << endl;
-			data[i].output(cout);
-			num_found++;
-		}
-	}
-	if (num_found == 0)
-	{
-		cout << "No Player by that name!" << endl;
-	}*/
 }
 
 
@@ -105,7 +94,7 @@ void Database::display_all()
 {
 	for (int i = 0; i < used; i++)
 	{
-		data[i].output(cout);
+		data[i].output(std::cout);
 	}
 }
 
@@ -121,7 +110,7 @@ void Database::remove(char* name)
 	}
 }
 
-void Database::save(ostream& outs)
+void Database::save(std::ostream& outs)
 {
 	sort_name();
 	for (int i = 0; i < used; i++)
@@ -130,7 +119,7 @@ void Database::save(ostream& outs)
 	}
 }
 
-void Database::load(istream& ins)
+void Database::load(std::istream& ins)
 {
 	Player tmp;
 	while (ins.read((char*)&tmp, sizeof(Player)))

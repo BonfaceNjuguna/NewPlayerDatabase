@@ -2,7 +2,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <iostream>
-using namespace std;
 
 class Player
 {
@@ -10,7 +9,7 @@ public:
 	Player();
 
 	Player(char new_name[256], int new_id, double new_stipend, int new_age);
-	char* get_name() { return name; }
+	char* get_name() { return name; } //string not char*
 	int get_id_number() { return id_no; }
 	double get_stipend() { return stipend; }
 	int get_age() { return age; }
