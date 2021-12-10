@@ -44,7 +44,12 @@ int main()
 			std::cout << "Enter the Player's name: ";
 			if (std::cin.peek() == '\n')std::cin.ignore();
 			std::cin >> searchName;
-			database.search(0, searchName);	
+			auto player = database.search(0, searchName);
+			if (player != nullptr)
+				std::cout << "Player " << searchName << " found! " << std::endl;
+			else
+				std::cout << "Player not found!" << std::endl;
+			break;
 		}
 
 		case 3:
@@ -61,16 +66,12 @@ int main()
 			char name[256];
 			std::cout << "Enter the name of Player to be removed: ";
 			if (std::cin.peek() == '\n')std::cin.ignore();
-			if (std::cin >> name)
-			{
-				database.remove(name);
-				std::cout << "Player removed! ";
-			}
-			else 
-			{
-				std::cout << "No Player by that name!: ";
-			}
-			
+			std::cin >> name;
+			database.remove(name);
+			/*if (name == name)
+				std::cout << "Player found and removed!" << std::endl;
+			else
+				std::cout << "Player not found" << std::endl;*/
 			break;
 		}
 

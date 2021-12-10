@@ -67,15 +67,17 @@ int Database::binarySearch(int startindex, int length, std::string searchitem)
 	return binarySearch(startindex + midpoint + 1, length - midpoint, searchitem);
 }
 
-Player Database::search(int start, std::string searchname)
+Player* Database::search(int start, std::string searchname)
 {
 
 	sort_name();
 
 	auto foundPosition(binarySearch(0, used, searchname));
 
-	if (foundPosition != -1) return data[foundPosition];
-
+	if (foundPosition != -1)
+		return &data[foundPosition];
+	else
+		return nullptr;
 }
 
 

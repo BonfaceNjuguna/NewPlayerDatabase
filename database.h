@@ -12,7 +12,7 @@ public:
 	Database(const Database& other);
 	void operator = (const Database& other);
 	//void search(char* name);
-	Player search(int start, std::string searchname);
+	Player* search(int start, std::string searchname);
 	void add(const Player& plr);
 	void display_all();
 	void remove(char* name); 
