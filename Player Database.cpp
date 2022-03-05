@@ -4,8 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <algorithm>
 
-using namespace std;
 
 int menu();
 int main()
@@ -25,7 +25,7 @@ int main()
 		new_file.close();
 	}
 
-	for (auto choice(menu()); choice != 8; choice = menu())
+	for (auto choice(menu()); choice != 9; choice = menu())
 	{
 		switch (choice)
 		{
@@ -40,7 +40,7 @@ int main()
 		case 2:
 		{
 			system("cls");
-			string searchName;
+			std::string searchName;
 			std::cout << "Enter the Player's name: ";
 			if (std::cin.peek() == '\n')std::cin.ignore();
 			std::cin >> searchName;
@@ -51,8 +51,52 @@ int main()
 				std::cout << "Player not found!" << std::endl;
 			break;
 		}
-
 		case 3:
+		{
+			system("cls");
+			std::string searchName;
+			std::cout << "Enter the Player's name: ";
+			if (std::cin.peek() == '\n')std::cin.ignore();
+			std::cin >> searchName;
+			auto player = database.search(0, searchName);
+			if (player != nullptr) 
+			{
+				std::cout << "Player " << searchName << " found! " << std::endl;
+				std::cout << "Enter new player name:" << std::endl;
+				std::string inpt;
+				std::cin >> inpt;
+
+				std::string i = inpt;
+
+
+				fin.open("student.dat", std::ios::in | std::ios::out, std::ios::binary);
+
+				Player splr;
+
+				fin.seekg(sizeof(Player), sizeof(i));
+				fin.read((char*)&splr, sizeof(Player));
+
+				Player newPlr;
+
+				std::string newName;
+				std::cin >> newName;
+
+				newPlr.get_name() == newName;
+				splr = Player(newPlr);
+
+				/*fin.seekp(sizeof(Player), sizeof(i) + sizeof(int));
+				fin.write((const char*)&ioplr, sizeof(Player));*/
+
+				std::cout << "Player edited successfully!!" << std::endl;
+
+				fin.close();
+			}				
+			else
+				std::cout << "Player not found!" << std::endl;
+			break;
+		}
+
+		case 4:
 		{
 			system("cls");
 			std::cout << "All the Players in the database!" << std::endl;
@@ -60,22 +104,26 @@ int main()
 			break;
 		}
 
-		case 4:
+		case 5:
 		{
 			system("cls");
 			char name[256];
-			std::cout << "Enter the name of Player to be removed: ";
+			std::cout << "Search Player Name: ";
 			if (std::cin.peek() == '\n')std::cin.ignore();
 			std::cin >> name;
-			database.remove(name);
-			/*if (name == name)
-				std::cout << "Player found and removed!" << std::endl;
+			auto player = database.search(0, name);
+
+			if (player != nullptr) 
+			{
+				database.remove(name);
+				std::cout << "Player deleted successfully!" << std::endl;				
+			}	
 			else
-				std::cout << "Player not found" << std::endl;*/
+				std::cout << "Player not found!" << std::endl;
 			break;
 		}
 
-		case 5:
+		case 6:
 		{
 			system("cls");
 			database.sort_stipend();
@@ -84,7 +132,7 @@ int main()
 			break;
 		}
 
-		case 6:
+		case 7:
 		{
 			system("cls");
 			database.sort_name();
@@ -93,7 +141,7 @@ int main()
 			break;
 		}
 
-		case 7:
+		case 8:
 		{
 			system("cls");
 			database.sort_age();
@@ -125,12 +173,13 @@ int menu()
 {
 	std::cout << " \n1. Add new player." << std::endl;
 	std::cout << "2. Search for player by name." << std::endl;
-	std::cout << "3. Display all current players." << std::endl;
-	std::cout << "4. Remove player form database" << std::endl;
-	std::cout << "5. Sort Players by highest Stipend." << std::endl;
-	std::cout << "6. Sort Player by First Name" << std::endl;
-	std::cout << "7. Sort Player by Age" << std::endl;
-	std::cout << "8. Quit." << std::endl;
+	std::cout << "3. Edit Player Name." << std::endl;
+	std::cout << "4. Display all current players." << std::endl;
+	std::cout << "5. Remove player form database" << std::endl;
+	std::cout << "6. Sort Players by highest Stipend." << std::endl;
+	std::cout << "7. Sort Player by First Name" << std::endl;
+	std::cout << "8. Sort Player by Age" << std::endl;
+	std::cout << "9. Quit." << std::endl;
 
 
 	int choice;

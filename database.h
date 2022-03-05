@@ -15,7 +15,7 @@ public:
 	Player* search(int start, std::string searchname);
 	void add(const Player& plr);
 	void display_all();
-	void remove(char* name); 
+	void remove(char* name);
 	void save(std::ostream& outs);
 	void load(std::istream& ins);
 	void sort_name();
