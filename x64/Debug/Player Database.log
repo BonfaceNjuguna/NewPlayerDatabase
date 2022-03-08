@@ -1,3 +1,2 @@
 ﻿  Player Database.cpp
-D:\AIE\c++ projects\playerDBnew\NewPlayerDatabase\Player Database.cpp(84,23): warning C4834: discarding return value of function with 'nodiscard' attribute
   Player Database.vcxproj -> D:\AIE\c++ projects\playerDBnew\NewPlayerDatabase\x64\Debug\Player Database.exe

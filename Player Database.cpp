@@ -13,6 +13,7 @@ int main()
 	Database database;
 
 	std::ifstream fin("student.dat", std::ios::out | std::ios::binary);
+	fin.seekg(std::ios::beg);
 
 	if (!fin.fail())
 	{
@@ -65,30 +66,16 @@ int main()
 				std::cout << "Enter new player name:" << std::endl;
 				std::string inpt;
 				std::cin >> inpt;
-
-				std::string i = inpt;
-
-
+				
 				fin.open("student.dat", std::ios::in | std::ios::out, std::ios::binary);
 
-				Player splr;
+				Player ioplr;
 
-				fin.seekg(sizeof(Player), sizeof(i));
-				fin.read((char*)&splr, sizeof(Player));
+				fin.seekg(player->index * sizeof(Player));
+				fin.read((char*)&ioplr, sizeof(Player));
 
-				Player newPlr;
-
-				std::string newName;
-				std::cin >> newName;
-
-				newPlr.get_name() == newName;
-				splr = Player(newPlr);
-
-				/*fin.seekp(sizeof(Player), sizeof(i) + sizeof(int));
-				fin.write((const char*)&ioplr, sizeof(Player));*/
-
+				fin.seekg(0, std::ios::end);
 				std::cout << "Player edited successfully!!" << std::endl;
-
 				fin.close();
 			}				
 			else

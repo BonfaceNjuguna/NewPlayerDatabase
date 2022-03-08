@@ -13,6 +13,7 @@ public:
 	int get_id_number() { return id_no; }
 	double get_stipend() { return stipend; }
 	int get_age() { return age; }
+	int index;
 
 	void output(std::ostream& outs);
 	void input(std::istream& ins);

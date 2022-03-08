@@ -130,6 +130,7 @@ void Database::load(std::istream& ins)
 		{
 			make_bigger();
 		}
+		tmp.index = used;
 		data[used] = tmp;
 		used++;
 	}
