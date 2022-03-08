@@ -14,6 +14,7 @@ public:
 	double get_stipend() { return stipend; }
 	int get_age() { return age; }
 	int index;
+	Player set_name(std::string&);
 
 	void output(std::ostream& outs);
 	void input(std::istream& ins);

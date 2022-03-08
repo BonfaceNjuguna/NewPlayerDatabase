@@ -24,6 +24,10 @@ Player::Player(char new_name[256], int new_id, double new_stipend, int new_age)
 	age = new_age;
 }
 
+Player Player::set_name(std::string&)
+{
+	return Player();
+}
 
 //output
 void Player::output(std::ostream& outs)

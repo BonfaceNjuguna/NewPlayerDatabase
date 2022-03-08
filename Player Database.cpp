@@ -12,8 +12,7 @@ int main()
 {
 	Database database;
 
-	std::ifstream fin("student.dat", std::ios::out | std::ios::binary);
-	fin.seekg(std::ios::beg);
+	std::ifstream fin("student.dat", std::ios::out | std::ios::binary); 
 
 	if (!fin.fail())
 	{
@@ -55,7 +54,7 @@ int main()
 		case 3:
 		{
 			system("cls");
-			std::string editName;
+			char editName[256];
 			std::cout << "Enter the Player's name: ";
 			if (std::cin.peek() == '\n')std::cin.ignore();
 			std::cin >> editName;
@@ -66,17 +65,20 @@ int main()
 				std::cout << "Enter new player name:" << std::endl;
 				std::string inpt;
 				std::cin >> inpt;
-				
-				fin.open("student.dat", std::ios::in | std::ios::out, std::ios::binary);
 
-				Player ioplr;
+				Player edplr;
 
 				fin.seekg(player->index * sizeof(Player));
-				fin.read((char*)&ioplr, sizeof(Player));
+				fin.read((char*)&edplr, sizeof(Player));
 
 				fin.seekg(0, std::ios::end);
+				database.remove(editName);
+				edplr.set_name(inpt);
+				database.add(edplr);
+				/*player.set_name(inpt);
+				database.add(player);*/
+
 				std::cout << "Player edited successfully!!" << std::endl;
-				fin.close();
 			}				
 			else
 				std::cout << "Player not found!" << std::endl;
