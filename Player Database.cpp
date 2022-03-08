@@ -55,14 +55,14 @@ int main()
 		case 3:
 		{
 			system("cls");
-			std::string searchName;
+			std::string editName;
 			std::cout << "Enter the Player's name: ";
 			if (std::cin.peek() == '\n')std::cin.ignore();
-			std::cin >> searchName;
-			auto player = database.search(0, searchName);
+			std::cin >> editName;
+			auto player = database.search(0, editName);
 			if (player != nullptr) 
 			{
-				std::cout << "Player " << searchName << " found! " << std::endl;
+				std::cout << "Player " << editName << " found! " << std::endl;
 				std::cout << "Enter new player name:" << std::endl;
 				std::string inpt;
 				std::cin >> inpt;
