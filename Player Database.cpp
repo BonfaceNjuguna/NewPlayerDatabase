@@ -73,10 +73,10 @@ int main()
 
 				fin.seekg(0, std::ios::end);
 				database.remove(editName);
-				edplr.set_name(inpt);
+				/*edplr.set_name(inpt);
+				database.add(edplr);*/
+				player->set_name(inpt);
 				database.add(edplr);
-				/*player.set_name(inpt);
-				database.add(player);*/
 
 				std::cout << "Player edited successfully!!" << std::endl;
 			}				
