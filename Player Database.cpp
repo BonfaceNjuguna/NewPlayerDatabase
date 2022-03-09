@@ -63,22 +63,24 @@ int main()
 			{
 				std::cout << "Player " << editName << " found! " << std::endl;
 				std::cout << "Enter new player name:" << std::endl;
-				std::string inpt;
+				char inpt[256];
 				std::cin >> inpt;
+
+				fin.open("student.dat", std::ios::in | std::ios::out, std::ios::binary);
 
 				Player edplr;
 
 				fin.seekg(player->index * sizeof(Player));
 				fin.read((char*)&edplr, sizeof(Player));
 
+
 				fin.seekg(0, std::ios::end);
 				database.remove(editName);
-				/*edplr.set_name(inpt);
-				database.add(edplr);*/
-				player->set_name(inpt);
+				edplr.set_name(inpt);
 				database.add(edplr);
 
 				std::cout << "Player edited successfully!!" << std::endl;
+				fin.close();
 			}				
 			else
 				std::cout << "Player not found!" << std::endl;

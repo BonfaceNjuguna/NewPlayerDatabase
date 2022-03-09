@@ -14,7 +14,7 @@ public:
 	double get_stipend() { return stipend; }
 	int get_age() { return age; }
 	int index;
-	void set_name(std::string& newname);
+	void set_name(char newname[256]) { strcpy_s(name, 256, newname); }
 
 	void output(std::ostream& outs);
 	void input(std::istream& ins);

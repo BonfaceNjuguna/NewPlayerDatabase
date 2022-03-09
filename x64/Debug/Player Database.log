@@ -1,3 +1,2 @@
-﻿  Player.cpp
-D:\AIE\c++ projects\playerDBnew\NewPlayerDatabase\Player.cpp(31): warning C4717: 'Player::set_name': recursive on all control paths, function will cause runtime stack overflow
+﻿  Player Database.cpp
   Player Database.vcxproj -> D:\AIE\c++ projects\playerDBnew\NewPlayerDatabase\x64\Debug\Player Database.exe
