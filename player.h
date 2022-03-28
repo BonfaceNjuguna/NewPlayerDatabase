@@ -14,7 +14,10 @@ public:
 		return name; 
 	}
 	int index;
-	void setIndex(int indxused) {};
+	void set_name(char* new_name)
+	{
+		strcpy_s(name, new_name);
+	}
 	int get_id_number() 
 	{ 
 		return id_no; 

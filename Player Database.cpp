@@ -65,13 +65,12 @@ int main()
 				std::cout << "Enter new player name:" << std::endl;
 				char inpt[256];
 				std::cin >> inpt;
+				player->set_name(inpt);
 
-				fin.open("student.dat", std::ios::in | std::ios::out, std::ios::binary);
+				std::ofstream fout("student.dat", std::ios::binary);
 
-				Player edplr;
-
-				fin.seekg(player->index * sizeof(Player));
-				fin.read((char*)&edplr, sizeof(Player));
+				fout.seekp(player->index * sizeof(Player));
+				fout.write((char*)&player, sizeof(Player));
 
 				std::cout << "Player edited successfully!!" << std::endl;
 				fin.close();
