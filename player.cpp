@@ -13,6 +13,7 @@ Player::Player()
 	id_no = 0;
 	stipend = 0;
 	age = 0;
+	index = 0;
 }
 
 //copy constructor

@@ -44,7 +44,7 @@ int main()
 			std::cout << "Enter the Player's name: ";
 			if (std::cin.peek() == '\n')std::cin.ignore();
 			std::cin >> searchName;
-			auto player = database.search(0, searchName);
+			auto player = database.search(searchName);
 			if (player != nullptr)
 				std::cout << "Player " << searchName << " found! " << std::endl;
 			else
@@ -58,7 +58,7 @@ int main()
 			std::cout << "Enter the Player's name: ";
 			if (std::cin.peek() == '\n')std::cin.ignore();
 			std::cin >> editName;
-			auto player = database.search(0, editName);
+			auto player = database.search(editName);
 			if (player != nullptr) 
 			{
 				std::cout << "Player " << editName << " found! " << std::endl;
@@ -72,12 +72,6 @@ int main()
 
 				fin.seekg(player->index * sizeof(Player));
 				fin.read((char*)&edplr, sizeof(Player));
-
-
-				fin.seekg(0, std::ios::end);
-				database.remove(editName);
-				edplr.set_name(inpt);
-				database.add(edplr);
 
 				std::cout << "Player edited successfully!!" << std::endl;
 				fin.close();
@@ -102,7 +96,7 @@ int main()
 			std::cout << "Search Player Name: ";
 			if (std::cin.peek() == '\n')std::cin.ignore();
 			std::cin >> name;
-			auto player = database.search(0, name);
+			auto player = database.search(name);
 
 			if (player != nullptr) 
 			{

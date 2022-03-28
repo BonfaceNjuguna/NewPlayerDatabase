@@ -67,7 +67,7 @@ int Database::binarySearch(int startindex, int length, std::string searchitem)
 	return binarySearch(startindex + midpoint + 1, length - midpoint, searchitem);
 }
 
-Player* Database::search(int start, std::string searchname)
+Player* Database::search(std::string searchname)
 {
 
 	sort_name();
@@ -124,13 +124,14 @@ void Database::save(std::ostream& outs)
 void Database::load(std::istream& ins)
 {
 	Player tmp;
+
 	while (ins.read((char*)&tmp, sizeof(Player)))
 	{
 		if (used >= capacity)
 		{
 			make_bigger();
 		}
-		tmp.index = used;
+		tmp.setIndex(used);
 		data[used] = tmp;
 		used++;
 	}
