@@ -60,7 +60,7 @@ int Database::binarySearch(int startindex, int length, std::string searchitem)
 {
 	int midpoint(length / 2);
 	if (strcmp(data[startindex + midpoint].get_name(), searchitem.c_str()) == 0) return startindex + midpoint;
-	if (length == 1) return -1;
+	if (length == 0) return -1;
 
 	auto answer(binarySearch(startindex, length - midpoint, searchitem));
 	if (answer != -1) return answer;

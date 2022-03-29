@@ -67,7 +67,7 @@ int main()
 				std::cin >> inpt;
 				player->set_name(inpt);
 
-				std::ofstream fout("student.dat", std::ios::binary);
+				std::ofstream fout("student.dat", std::ios::in | std::ios::out | std::ios::binary);
 
 				fout.seekp(player->index * sizeof(Player));
 				fout.write((char*)&player, sizeof(Player));
